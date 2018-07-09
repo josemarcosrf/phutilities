@@ -32,8 +32,9 @@ if __name__ == "__main__":
 
     img_files = []
     for ext in args.extensions:
+        pattrn = "**/*.{}" if args.recursive else "*.{}"
         print("Collectiong *.{} files".format(ext))
-        img_files.extend(glob.glob(os.path.join(args.src_path, "**/*.{}".format(ext)),
+        img_files.extend(glob.glob(os.path.join(args.src_path, pattrn.format(ext)),
                                    recursive=args.recursive))
 
     img_it = tqdm(img_files)
