@@ -47,14 +47,14 @@ if __name__ == "__main__":
 
     img_files = []
     for ext in args.extensions:
-        logger.info("Collectiong *.{} files".format(ext))
-        if args.recursive:
-            extensions = "**/*.{}".format(ext)
-        else:
-            extensions = "*.{}".format(ext)
 
-        img_files.extend(glob.glob(os.path.join(args.src_path, extensions),
-                                   recursive=args.recursive))
+        logger.info("Collectiong *.{} files".format(ext))
+        pattrn = "**/*.{}" if args.recursive else "*.{}"
+
+        img_files.extend(glob.glob(
+            os.path.join(args.src_path, pattrn.format(ext)),
+            recursive=args.recursive)
+        )
         logger.info("Found {} total image files.".format(len(img_files)))
 
     img_it = tqdm(img_files)
