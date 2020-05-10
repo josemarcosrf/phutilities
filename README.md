@@ -1,17 +1,45 @@
-photo organiser
-=======
+Ph(oto)-Utilities
+=================
 
-Small script to read pictures (maybe recursiverly) from a folder and read exif to copy or move to another folder by year > month > day
+Small collection of utilities to handle image files.
 
-Run
---
+- Organize pictures by date: Explore, maybe recursiverly, a folder and 
+  copy or move to a date based folder structure: `year > month > day`
+- Find duplicates: Scan two directories, maybe recursively, to find possible duplicate images based in the time of `DateTimeOriginal` in the exif metadata. 
 
-```sh
-	python photo_organiser.py <src_fodler> <dst_folder> [--recursively] [--move] [--extensions <ext1> <ext2>]
+<!--ts-->
+   * [Ph(oto)-Utilities](#photo-utilities)
+      * [Run](#run)
+      * [Requierements](#requierements)
+
+<!-- Added by: jose, at: Sat  9 May 19:21:18 CEST 2020 -->
+
+<!--te-->
+
+## Run
+
+For can only be executed as a python module:
+
+To move pictures based on the time taken:
+```bash
+python -m phutilities.photo_organiser.py <src_fodler> <dst_folder> \
+    [--recursive] [--move] \
+    [--extensions <ext1> <ext2>] \
+    [--exclude <exlcusion-file>] \
+    --dry-run \
+    --debug
 ```
 
-Requierements
--------
+To get a list of possible duplicate files based on the time taken:
+```bash
+python -m phutilities.photo_dedup <src_fodler> <dst_folder> \
+    [-o <output-file-with-duplicate-paths>] \
+    [--recursive] [--debug] 
+```
+
+
+## Requierements
+
 
 * python>=3.5
 * tqdm==4.14.0
