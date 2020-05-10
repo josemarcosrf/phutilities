@@ -1,5 +1,5 @@
 Ph(oto)-Utilities
-=======
+=================
 
 Small collection of utilities to handle image files.
 
@@ -16,17 +16,30 @@ Small collection of utilities to handle image files.
 
 <!--te-->
 
-Run
---
+## Run
 
-```sh
-	python photo_organiser.py <src_fodler> <dst_folder> \
-        [--recursively] [--move] \
-        [--extensions <ext1> <ext2>]
+For can only be executed as a python module:
+
+To move pictures based on the time taken:
+```bash
+python -m phutilities.photo_organiser.py <src_fodler> <dst_folder> \
+    [--recursive] [--move] \
+    [--extensions <ext1> <ext2>] \
+    [--exclude <exlcusion-file>] \
+    --dry-run \
+    --debug
 ```
 
-Requierements
--------
+To get a list of possible duplicate files based on the time taken:
+```bash
+python -m phutilities.photo_dedup <src_fodler> <dst_folder> \
+    [-o <output-file-with-duplicate-paths>] \
+    [--recursive] [--debug] 
+```
+
+
+## Requierements
+
 
 * python>=3.5
 * tqdm==4.14.0

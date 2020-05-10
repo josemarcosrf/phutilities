@@ -1,6 +1,7 @@
 import glob
 import logging
 import os
+from datetime import datetime
 from typing import List
 
 from PIL.ExifTags import TAGS
@@ -12,6 +13,13 @@ def get_field(exif, field: str):
     for k, v in exif.items():
         if TAGS.get(k) == field:
             return v
+
+
+def get_time_taken(exif, fmt: str = "%Y:%m:%d %H:%M:%S") -> datetime:
+    d = get_field(exif, "DateTimeOriginal")
+
+    logger.debug(f"Image time: {d}")
+    return datetime.strptime(d, fmt)
 
 
 def gather_images(from_dir: str, extensions: List[str], recursive: bool = True):
