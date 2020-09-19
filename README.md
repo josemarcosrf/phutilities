@@ -3,9 +3,9 @@ Ph(oto)-Utilities
 
 Small collection of utilities to handle image files.
 
-- Organize pictures by date: Explore, maybe recursiverly, a folder and 
+- Organize pictures by date: Explore, maybe recursiverly, a folder and
   copy or move to a date based folder structure: `year > month > day`
-- Find duplicates: Scan two directories, maybe recursively, to find possible duplicate images based in the time of `DateTimeOriginal` in the exif metadata. 
+- Find duplicates: Scan two directories, maybe recursively, to find possible duplicate images based in the time of `DateTimeOriginal` in the exif metadata.
 
 <!--ts-->
    * [Ph(oto)-Utilities](#photo-utilities)
@@ -18,23 +18,24 @@ Small collection of utilities to handle image files.
 
 ## Run
 
-For can only be executed as a python module:
+> **note**: Currently can only be executed as a python module:
 
 To move pictures based on the time taken:
 ```bash
-python -m phutilities.photo_organiser.py <src_fodler> <dst_folder> \
+python -m phutilities.date_organiser <src_fodler> <dst_folder> \
     [--recursive] [--move] \
-    [--extensions <ext1> <ext2>] \
+    [--extensions <ext1> <ext2> <ext3>] \
     [--exclude <exlcusion-file>] \
-    --dry-run \
-    --debug
+    [--move-along] \
+    [--dry-run] \
+    [--debug]
 ```
 
 To get a list of possible duplicate files based on the time taken:
 ```bash
 python -m phutilities.photo_dedup <src_fodler> <dst_folder> \
     [-o <output-file-with-duplicate-paths>] \
-    [--recursive] [--debug] 
+    [--recursive] [--debug]
 ```
 
 
