@@ -32,7 +32,7 @@ tests_requires = [
     "pre-commit==1.21.0",
 ]
 
-install_requires = ["tqdm~=4.28.1", "Pillow~=6.2.2", "coloredlogs~=10.0"]
+install_requires = ["tqdm~=4.28.1", "Pillow>=6.2.2,<10.1.0", "coloredlogs~=10.0"]
 
 upload_requires = [
     "twine==3.1.1",
